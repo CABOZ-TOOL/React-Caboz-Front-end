@@ -4,6 +4,7 @@ import "./assets/css/style.css";
 import "./assets/css/aos.css";
 import "./assets/css/offcanvas.css";
 import "./assets/fonts/fontawesome-free-6.1.1-web/css/all.css";
+import Wallet from "./components/wallet";
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
 import Market from "./pages/Market";
@@ -20,7 +21,7 @@ import { HeadProvider, Title, Meta } from "react-head";
 
 function App() {
   return (
-    <div>
+    <Wallet>
       <HeadProvider>
         <Meta charSet="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,8 +43,7 @@ function App() {
         <Route path="/multistepform" element={<Multistep />} />
         <Route path="/project" element={<Project />} />
       </Routes>
-    </div>
-    // </div>
+    </Wallet>
   );
 }
 

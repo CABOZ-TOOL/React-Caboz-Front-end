@@ -1,47 +1,61 @@
-import {React, useState} from "react";
+import { useState } from "react";
 import Loader from "../components/Loader";
-import Nav from "../components/Nav";
 import solicon from "../assets/images/sol-icon.png";
+import user from "../assets/images/user.png";
+import magicEden from "../assets/images/magiceden.png";
+import OpenSea from "../assets/images/opensea.png";
 import deGod from "../assets/images/projects/degods.png";
 import deMan from "../assets/images/projects/inkworklabs.png";
 import blockSmith from "../assets/images/projects/blocksmithlabs.png";
 import cetsonCreck from "../assets/images/projects/cetsoncreck.png";
 import okayBears from "../assets/images/projects/okaybears.png";
 import trippinApe from "../assets/images/projects/trippinapetribe.png";
+import froots from "../assets/images/projects/froots.png";
 import aurory from "../assets/images/projects/aurory.png";
 import vandalCity from "../assets/images/projects/vandalcity.png";
 import gothicdegens from "../assets/images/projects/gothicdegens.png";
+import rakudos from "../assets/images/projects/rakkudos.png";
 import degenFatCat from "../assets/images/projects/degenfatcats.png";
+import angel from "../assets/images/projects/aiangels.png";
+import founderscoin from "../assets/images/projects/founderscoins.png";
+import maxis from "../assets/images/projects/mischievousmaxis.png";
+import sodead from "../assets/images/projects/sodead.png";
+import primate from "../assets/images/projects/primates.png";
+import supercoder from "../assets/images/projects/shadowsupercoder.png";
+import eclesia from "../assets/images/projects/eclestia.png";
+import genPet from "../assets/images/projects/genopets.png";
 import justap from "../assets/images/projects/justape.png";
+import dust from "../assets/images/projects/dustcrashcoinflip.png";
+import mino from "../assets/images/projects/minoansofmoobaa.png";
+import alien from "../assets/images/projects/alientrippinhigh.png";
+import jelly from "../assets/images/projects/jellyrascals.png";
+import degenape from "../assets/images/projects/degenerateapeacademy.png";
+import jikan from "../assets/images/projects/jikanstudios.png";
+import sengoku from "../assets/images/projects/sengokudegens.png";
+import infectedmob from "../assets/images/projects/infectedmob.png";
+import dragon from "../assets/images/projects/eternaldragonsgenesis.png";
+import weepangel from "../assets/images/projects/weepingangels.png";
+import aidegen from "../assets/images/projects/aidegens.png";
+import famousfox from "../assets/images/projects/famousfox.png";
+import il1 from "../assets/images/trades/il1.jpg";
+import il2 from "../assets/images/trades/il2.jpg";
+import il3 from "../assets/images/trades/il3.jpg";
+import dg1 from "../assets/images/trades/dg1.png";
+import dg2 from "../assets/images/trades/dg2.png";
+import dg3 from "../assets/images/trades/dg3.png";
+import bs1 from "../assets/images/trades/bs1.png";
+import bs2 from "../assets/images/trades/bs2.png";
+import ok from "../assets/images/trades/ok.png";
+import Nav from "../components/Nav";
 
-const Myorders = () => {
-  const searchOrders = () => {};
+const Market = () => {
+  const [hideModal, setHideModal] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [value, setValue] = useState('Sort by')
-
-
+  const searchOrder = () => { };
   return (
     <div>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="description" content="Caboz Tool by Inkwork Labs" />
-      <meta name="author" content="Caboz" />
-      <title>Caboz Tool by Inkwork Labs</title>
-      {/* <!-- Styles --> */}
-      <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-      <link href="./assets/css/style.css" rel="stylesheet" />
-      <link href="./assets/css/aos.css" rel="stylesheet" />
-      <link href="./assets/css/offcanvas.css" rel="stylesheet" />
-      {/* <!-- Fonts --> */}
-      <link
-        href="./assets/fonts/fontawesome-free-6.1.1-web/css/all.css"
-        rel="stylesheet"
-      />
-      {/* <!-- Favicon and Touch Icons --> */}
-      <link rel="shortcut icon" href="assets/images/favicon.png" />
-      <link
-        rel="apple-touch-icon-precomposed"
-        href="assets/images/favicon.png"
-      />
+
 
       {/* <!-- Loading --> */}
       <Loader />
@@ -55,7 +69,7 @@ const Myorders = () => {
         <div className="orders mt-5 mb-5 aos-init">
           <div className="px-2 py-4 row row-cols-1">
             <div className="col-xs-12 col-sm-12 col-md-6">
-              <h3 className="mx-2">My Orders</h3>
+              <h3 className="mx-2">Market</h3>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4 form-search mb-2">
               <i className="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
@@ -64,61 +78,67 @@ const Myorders = () => {
                 className="form-control form-input"
                 placeholder="Search for a collection ..."
                 id="searchordersinput"
-                onKeyUp={searchOrders()}
+              // onKeyUp={searchOrder()}
               />
             </div>
-            <div className="col-xs-12 col-sm-6 col-md-2 form-search">
+            <div className="col-xs-12 col-sm-6 col-md-2 form-search"  >
               <div className="btn-group" style={{ width: "100%" }}>
-              <button
+                <button
                   className="btn btn-drop dropdown-toggle shadow-none"
                   type="button"
                   id="filterDropdown"
                   data-bs-toggle="dropdown"
                   data-bs-auto-close="true"
                   aria-expanded="false"
-                  onClick={()=>{setShowDropdown(true)}}
+                  onClick={() => { setShowDropdown(true) }}
                 >
                   {value}
                 </button>
-                {showDropdown?(
-                <ul
-                  className="dropdown-menu day-range"
-                  aria-labelledby="filterDropdown"
-                  style={{display: "block",  marginTop: "43px"}}
-                >
-                  <li>
-                    <a className="dropdown-item hover:cursor-pointer" onClick={()=>{
-                      setShowDropdown(false)
-                      setValue('Date Created')
-                    }} >Date Created</a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item hover:cursor-pointer" onClick={()=>{
-                      setShowDropdown(false)
-                      setValue('Price: High to Low')
-                    }} >Price: High to Low</a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item hover:cursor-pointer" onClick={()=>{
-                      setShowDropdown(false)
-                      setValue('Price: Low to High')
-                    }} >Price: Low to High</a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item hover:cursor-pointer" onClick={()=>{
-                      setShowDropdown(false)
-                      setValue('From A to Z')
-                    }} >From A to Z</a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item hover:cursor-pointer" onClick={()=>{
-                      setShowDropdown(false)
-                      setValue('From Z to A')
-                    }} >From Z to A</a>
-                  </li>
-                </ul>
-                ): null}
+                {showDropdown ? (
+                  <ul
+                    className="dropdown-menu day-range"
+                    aria-labelledby="filterDropdown"
+                    style={{ display: "block", marginTop: "43px" }}
+                  >
+                    <li>
+                      <a className="dropdown-item hover:cursor-pointer" onClick={() => {
+                        setShowDropdown(false)
+                        setValue('Date Created')
+                      }} >Date Created</a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item hover:cursor-pointer" onClick={() => {
+                        setShowDropdown(false)
+                        setValue('Price: High to Low')
+                      }} >Price: High to Low</a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item hover:cursor-pointer" onClick={() => {
+                        setShowDropdown(false)
+                        setValue('Price: Low to High')
+                      }} >Price: Low to High</a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item hover:cursor-pointer" onClick={() => {
+                        setShowDropdown(false)
+                        setValue('From A to Z')
+                      }} >From A to Z</a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item hover:cursor-pointer" onClick={() => {
+                        setShowDropdown(false)
+                        setValue('From Z to A')
+                      }} >From Z to A</a>
+                    </li>
+                  </ul>
+                ) : null}
               </div>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-12 marketFilter pt-2">
+              <label className="compat-trades">
+                <input type="checkbox" id="compatTades" name="compatTades" />{" "}
+                Show compatible trades only
+              </label>
             </div>
           </div>
           <div
@@ -149,8 +169,8 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
                         />{" "}
                         13.50
                       </td>
@@ -168,7 +188,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -183,7 +203,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -191,15 +211,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -207,7 +230,7 @@ const Myorders = () => {
                 </table>
               </div>
             </div>
-            <div className="col col-xs-1">
+            <div className="col col-xs-1 notcompat">
               <div className="order-items-box p-2 mb-4">
                 <table className="table table-borderless white-text my-0">
                   <tbody>
@@ -230,8 +253,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         33.50
                       </td>
@@ -270,7 +294,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -285,7 +309,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -293,15 +317,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-red btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -309,7 +336,7 @@ const Myorders = () => {
                 </table>
               </div>
             </div>
-            <div className="col col-xs-1">
+            <div className="col col-xs-1 notcompat">
               <div className="order-items-box p-2 mb-4">
                 <table className="table table-borderless white-text my-0">
                   <tbody>
@@ -332,8 +359,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         322
                       </td>
@@ -351,7 +379,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -366,7 +394,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -374,15 +402,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-red btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -390,13 +421,13 @@ const Myorders = () => {
                 </table>
               </div>
             </div>
-            <div className="col col-xs-1">
+            <div className="col col-xs-1 notcompat">
               <div className="order-items-box p-2 mb-4">
                 <table className="table table-borderless white-text my-0">
                   <tbody>
                     <tr>
                       <td>
-                        <a href="./project.php?proj=Tripping Ape Tribe">
+                        <a href="./project.php?proj=Trippin Ape Tribe">
                           <img
                             src={trippinApe}
                             alt=""
@@ -413,8 +444,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         9.45
                       </td>
@@ -432,7 +464,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -447,7 +479,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -455,15 +487,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-red btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -492,8 +527,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         49.54
                       </td>
@@ -511,7 +547,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -526,7 +562,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -534,15 +570,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -571,8 +610,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         61.54
                       </td>
@@ -611,7 +651,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -626,7 +666,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -634,15 +674,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -650,7 +693,7 @@ const Myorders = () => {
                 </table>
               </div>
             </div>
-            <div className="col col-xs-1">
+            <div className="col col-xs-1 notcompat">
               <div className="order-items-box p-2 mb-4">
                 <table className="table table-borderless white-text my-0">
                   <tbody>
@@ -671,8 +714,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         12.76
                       </td>
@@ -690,7 +734,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -705,7 +749,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -713,15 +757,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-red btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -729,7 +776,7 @@ const Myorders = () => {
                 </table>
               </div>
             </div>
-            <div className="col col-xs-1">
+            <div className="col col-xs-1 notcompat">
               <div className="order-items-box p-2 mb-4">
                 <table className="table table-borderless white-text my-0">
                   <tbody>
@@ -750,8 +797,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         51.11
                       </td>
@@ -790,7 +838,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -805,7 +853,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -813,15 +861,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-red btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -829,7 +880,7 @@ const Myorders = () => {
                 </table>
               </div>
             </div>
-            <div className="col col-xs-1">
+            <div className="col col-xs-1 notcompat">
               <div className="order-items-box p-2 mb-4">
                 <table className="table table-borderless white-text my-0">
                   <tbody>
@@ -850,8 +901,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         9.11
                       </td>
@@ -869,7 +921,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -884,7 +936,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -892,15 +944,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-red btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -929,8 +984,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         27.64
                       </td>
@@ -948,7 +1004,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -963,7 +1019,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -971,15 +1027,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -1008,8 +1067,8 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
                         />{" "}
                         11.1
                       </td>
@@ -1027,7 +1086,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -1042,7 +1101,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -1050,15 +1109,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -1087,8 +1149,8 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
                         />{" "}
                         8.89
                       </td>
@@ -1127,7 +1189,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -1142,7 +1204,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -1150,15 +1212,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -1187,8 +1252,8 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
                         />{" "}
                         9.99
                       </td>
@@ -1227,7 +1292,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -1242,7 +1307,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -1250,15 +1315,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -1287,8 +1355,9 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
+
                         />{" "}
                         5.51
                       </td>
@@ -1307,6 +1376,8 @@ const Myorders = () => {
                             className="btn btn-traits dropdown-toggle shadow-none"
                             type="button"
                             data-bs-toggle="dropdown"
+                            data-bs-auto-close="true"
+                            aria-expanded="false"
                           >
                             View
                           </button>
@@ -1325,7 +1396,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -1340,7 +1411,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -1348,15 +1419,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -1385,8 +1459,8 @@ const Myorders = () => {
                       <td className="text-right">
                         <img
                           src={solicon}
-                          style={{display: "inline-block"}}
                           className="sol-icon"
+                          style={{ display: "inline-block" }}
                         />{" "}
                         8.89
                       </td>
@@ -1404,7 +1478,7 @@ const Myorders = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="pt-3" colSpan="2"></td>
+                      <td className="pt-3" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td>Order ID</td>
@@ -1419,7 +1493,7 @@ const Myorders = () => {
                       <td className="text-right">someone.sol</td>
                     </tr>
                     <tr>
-                      <td className="pt-2" colSpan="2"></td>
+                      <td className="pt-2" colSpan={2}></td>
                     </tr>
                     <tr>
                       <td className="text-center">
@@ -1427,15 +1501,18 @@ const Myorders = () => {
                           href="#"
                           className="btn btn-dark btn-md rounded-3 inlineblock full-width"
                         >
-                          Edit
+                          View
                         </a>
                       </td>
                       <td className="text-center">
                         <a
-                          href="#"
-                          className="btn btn-dark btn-md rounded-3 inlineblock full-width"
+                          href="#trade"
+                          data-bs-toggle="modal"
+                          data-bs-target="#trade"
+                          className="btn btn-dark-green btn-md rounded-3 inlineblock full-width"
+                          onClick={() => { setHideModal(true) }}
                         >
-                          Cancel
+                          Trade
                         </a>
                       </td>
                     </tr>
@@ -1543,14 +1620,151 @@ const Myorders = () => {
       </footer>
       {/* <!-- Back-to-top --> */}
       <a
-        href="#"
         type="button"
+        href="#"
         className="btn btn-info btn-floating btn-md text-white shadow-none"
         id="btn-back-to-top"
-        style={{display: "block"}}
+        style={{ display: "block" }}
       >
         <i className="fas fa-arrow-up"></i>
       </a>
+
+      {/* <!-- Trade Modal --> */}
+      {hideModal ? (
+        <div
+          className="modal"
+          id="trade"
+          tabIndex={-1}
+          aria-labelledby="tradeModalLabel"
+          aria-hidden="true"
+          style={{ display: "block", background: "#0f1012b8" }}
+        >
+          <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
+            <div className="modal-content modal-dark text-white">
+              <div className="modal-body">
+                <button
+                  type="button"
+                  className="btn-close shadow-none float-right"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={() => { setHideModal(false) }}
+                ></button>
+                <div className="row">
+                  <div className="px-2 py-2 row row-cols-1">
+                    <div className="col-xs-12 col-sm-12 col-md-7 pb-3">
+                      <h3 className="mx-2">Available NFTs</h3>
+                    </div>
+                  </div>
+                  <div className="row row-cols-1 px-1 mx-1">
+                    <div className="col-6 col-xs-6 col-sm-6 col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={il1}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        Inkwork Labs #321
+                      </div>
+                    </div>
+                    <div className="col-6 col-xs-6 col-sm-6 col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={il2}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        Inkwork Labs #123
+                      </div>
+                    </div>
+                    <div className="col-6 col-xs-6 col-sm-6 col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={il3}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        Inkwork Labs #112
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row row-cols-1 px-1 mx-1 pb-3">
+                    <div className="col">
+                      <hr className="hr-trades" />
+                    </div>
+                  </div>
+                  <div className="row row-cols-1 px-1 mx-1 pb-3">
+                    <div className="col-xs-12 col-sm-12 col-md-7">
+                      <h3 className="mx-2">Unavailable NFTs</h3>
+                    </div>
+                  </div>
+                  <div className="row row-cols-1 px-1 mx-1">
+                    <div className="col-6 col-xs-6 col-sm-6 col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={dg1}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        DeGods #7263
+                      </div>
+                    </div>
+                    <div className="col-6 col-xs-6 col-sm-6 col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={dg2}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        DeGods 121
+                      </div>
+                    </div>
+                    <div className="col-6 col-xs-6 col-sm-6  col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={dg3}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        DeGods #7263
+                      </div>
+                    </div>
+                    <div className="col-6 col-xs-6 col-sm-6 col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={bs1}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        Blacksmith Labs #11
+                      </div>
+                    </div>
+                    <div className="col-6 col-xs-6 col-sm-6 col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={bs2}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        Blacksmith Labs #8
+                      </div>
+                    </div>
+                    <div className="col-6 col-xs-6 col-sm-6 col-md-2 text-center">
+                      <div className="trade-item tetx-white">
+                        <img
+                          src={ok}
+                          className="img-fluid mb-2"
+                        />
+                        <br />
+                        Okay Bears #331
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
       {/* <!-- JS --> */}
       <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -1560,9 +1774,8 @@ const Myorders = () => {
       <script src="./assets/js/aos.js"></script>
       <script src="./assets/js/offcanvas.js"></script>
       <script src="./assets/js/main.js"></script>
-      <script>AOS.init();</script>
     </div>
   );
 };
 
-export default Myorders;
+export default Market;

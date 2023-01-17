@@ -1,9 +1,9 @@
-import React from "react";
 import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 
-const Ordersuccess = () => {
+const Ordersuccess = (props: { page: any, setPage: any, formData: any, setFormData: any }) => {
+  const { page, setPage, formData, setFormData } = props;
   return (
     <div>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,7 +47,7 @@ const Ordersuccess = () => {
 
               {/* <!-- <a href="./collection.php" className="btn btn-lg btn-dark btn-md rounded-3 shadow-none inlineblock mt-3">Okay</a> --> */}
               <div className="project-buttons text-center pt-5 aos-init">
-                <a onClick={() => window.location.reload(false)} className=" hover:cursor-pointer">Create a New Order</a>
+                <a onClick={() => window.location.reload()} className=" hover:cursor-pointer">Create a New Order</a>
                 <Link to={"/my-orders"}>My Orders</Link>
               </div>
             </div>

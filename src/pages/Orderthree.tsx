@@ -1,22 +1,26 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 import Nav from "../components/Nav";
 import solicon from "../assets/images/sol-icon.png";
 
-const Orderthree = ({ page, setPage, formData }) => {
+const Orderthree = (props: { page: any, setPage: any, formData: any, setFormData: any }) => {
+  const { page, setPage, formData, setFormData } = props;
   // const total = eval(formData.nftCost) + eval(formData.nftCost / 100);
   const [total, setTotalValue] = useState(0);
 
   useEffect(() => {
     let totalCalc = 0;
-    formData.collection.map((item) => {
+    formData.collection.map((item: any) => {
       totalCalc += (parseInt(item.nftCost) + (parseInt(item.nftCost) / 100));
       // setTotalValue(total + parseInt(item.nftCost));
       console.log(item.nftCost, totalCalc);
       setTotalValue(totalCalc);
     });
   }, []);
-  console.log();
+
+  const handleSubmit = () => {
+    setPage(page + 1);
+  }
 
   return (
     <div>
@@ -58,7 +62,7 @@ const Orderthree = ({ page, setPage, formData }) => {
               id="content"
             >
               <h3 className="mt-5 page-title text-center">Create New Order</h3>
-              {formData.collection.map((item, index) => {
+              {formData.collection.map((item: any, index: any) => {
                 return (
                   <form id="createForm" className="mbottom" key={index}>
                     {/* <!-- start step indicators --> */}
@@ -119,7 +123,7 @@ const Orderthree = ({ page, setPage, formData }) => {
                                     src={`${item.nft
                                       .toLowerCase()
                                       .split("")
-                                      .filter((e) => e.trim().length)
+                                      .filter((e: any) => e.trim().length)
                                       .join("")}.png`}
                                     className="mx-2 searchimg inline-block "
                                   />
@@ -204,7 +208,7 @@ const Orderthree = ({ page, setPage, formData }) => {
                                   />{" "}
                                   <span id="totalSOL" className="summary-item">
                                     {eval(item.nftCost) +
-                                      eval(item.nftCost / 100)}
+                                      eval((item.nftCost / 100).toString())}
                                   </span>
                                 </td>
                               </tr>

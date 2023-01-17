@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import solicon from "../assets/images/sol-icon.png";
 // import deGods from "../assets/images/projects/degods.png";
 // import InkworkLabs from "../assets/images/projects/inkworklabs.png";
@@ -15,7 +15,8 @@ import solicon from "../assets/images/sol-icon.png";
 // import DegenerateApe from "../assets/images/projects/degenerateapeacademy.png";
 // import Froots from "../assets/images/projects/froots.png";
 
-const Ordertwo = ({ page, setPage, formData, setFormData }) => {
+const Ordertwo = (props: { page: number, setPage: any, formData: any, setFormData: any }) => {
+  const { page, setPage, formData, setFormData } = props;
   // const historyback = () => {};
   // const [traits, setTraits] = useState("Select Traits");
   // const [rarity, setRarity] = useState("Select Rarity");
@@ -61,7 +62,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
               id="content"
             >
               <h3 className="mt-5 page-title text-center">Create New Order</h3>
-              {formData.collection.map((item, index) => {
+              {formData.collection.map((item: any, index: any) => {
                 // console.log(item);
                 return (
                   <form id="createForm" key={index}>
@@ -69,7 +70,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                     <div
                       className="form-header mb-4  "
                       style={{ display: index === 0 ? "flex" : "none" }}
-                      // style={`${index === 0 ? 'display: block' : 'display: none'}}`}
+                    // style={`${index === 0 ? 'display: block' : 'display: none'}}`}
                     >
                       <span className="stepIndicator finish">
                         <span className="title-form">Select Collection</span>
@@ -108,7 +109,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                               src={`${item.nft
                                 .toLowerCase()
                                 .split("")
-                                .filter((e) => e.trim().length)
+                                .filter((e: any) => e.trim().length)
                                 .join("")}.png`}
                               className="mx-2 searchimg inline-block"
                             />
@@ -143,7 +144,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                             value={item.nftCost > 0 ? item.nftCost : 0}
                             onChange={(e) => {
                               const objIndex = formData.collection.findIndex(
-                                (obj) => obj.nftCost === item.nftCost
+                                (obj: any) => obj.nftCost === item.nftCost
                               );
                               // console.log(objIndex);
                               setFormData({
@@ -172,7 +173,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                           value={item.nftCost > 0 ? item.nftCost : 0}
                           onChange={(e) => {
                             const objIndex = formData.collection.findIndex(
-                              (obj) => obj.nftCost === item.nftCost
+                              (obj: any) => obj.nftCost === item.nftCost
                             );
                             // console.log(objIndex);
                             setFormData({
@@ -211,7 +212,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                               aria-expanded="false"
                               onClick={() => {
                                 const objIndex = formData.collection.findIndex(
-                                  (obj) => obj.nftCost === item.nftCost
+                                  (obj: any) => obj.nftCost === item.nftCost
                                 );
                                 setFormData({
                                   ...formData,
@@ -244,7 +245,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                     onClick={() => {
                                       const objIndex =
                                         formData.collection.findIndex(
-                                          (obj) => obj.nftCost === item.nftCost
+                                          (obj: any) => obj.nftCost === item.nftCost
                                         );
                                       // console.log(objIndex);
                                       setFormData({
@@ -277,7 +278,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                     onClick={() => {
                                       const objIndex =
                                         formData.collection.findIndex(
-                                          (obj) => obj.nftCost === item.nftCost
+                                          (obj: any) => obj.nftCost === item.nftCost
                                         );
                                       // console.log(objIndex);
                                       setFormData({
@@ -310,7 +311,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                     onClick={() => {
                                       const objIndex =
                                         formData.collection.findIndex(
-                                          (obj) => obj.nftCost === item.nftCost
+                                          (obj: any) => obj.nftCost === item.nftCost
                                         );
                                       // console.log(objIndex);
                                       setFormData({
@@ -343,7 +344,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                     onClick={() => {
                                       const objIndex =
                                         formData.collection.findIndex(
-                                          (obj) => obj.nftCost === item.nftCost
+                                          (obj: any) => obj.nftCost === item.nftCost
                                         );
                                       // console.log(objIndex);
                                       setFormData({
@@ -376,7 +377,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                     onClick={() => {
                                       const objIndex =
                                         formData.collection.findIndex(
-                                          (obj) => obj.nftCost === item.nftCost
+                                          (obj: any) => obj.nftCost === item.nftCost
                                         );
                                       // console.log(objIndex);
                                       setFormData({
@@ -440,7 +441,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                 // setShowTrait(!showTrait);
                                 // setShowRarity(false);
                                 const objIndex = formData.collection.findIndex(
-                                  (obj) => obj.nftCost === item.nftCost
+                                  (obj: any) => obj.nftCost === item.nftCost
                                 );
                                 setFormData({
                                   ...formData,
@@ -475,7 +476,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                   onClick={() => {
                                     const objIndex =
                                       formData.collection.findIndex(
-                                        (obj) => obj.nftCost === item.nftCost
+                                        (obj: any) => obj.nftCost === item.nftCost
                                       );
                                     // console.log(objIndex);
                                     setFormData({
@@ -508,7 +509,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                   onClick={() => {
                                     const objIndex =
                                       formData.collection.findIndex(
-                                        (obj) => obj.nftCost === item.nftCost
+                                        (obj: any) => obj.nftCost === item.nftCost
                                       );
                                     // console.log(objIndex);
                                     setFormData({
@@ -541,7 +542,7 @@ const Ordertwo = ({ page, setPage, formData, setFormData }) => {
                                   onClick={() => {
                                     const objIndex =
                                       formData.collection.findIndex(
-                                        (obj) => obj.nftCost === item.nftCost
+                                        (obj: any) => obj.nftCost === item.nftCost
                                       );
                                     // console.log(objIndex);
                                     setFormData({

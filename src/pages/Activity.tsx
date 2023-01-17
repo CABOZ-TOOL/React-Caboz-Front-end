@@ -101,7 +101,7 @@ const Activity = () => {
                     <tr>
                       <th
                         className="valign-mid text-center text-theader"
-                        colSpan="2"
+                        colSpan={2}
                       >
                         Name
                       </th>

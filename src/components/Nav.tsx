@@ -1,15 +1,40 @@
-import { React, useState } from "react";
-import solicon from "../assets/images/sol-icon.png";
-import "../App.css";
+import { useState, useMemo, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import solicon from "../assets/images/sol-icon.png";
+import { WalletModalProvider, WalletMultiButton, WalletIcon, useWalletModal } from "@solana/wallet-adapter-react-ui";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { solConnection } from "src/helpers/api";
+import "../App.css";
+import "../assets/css/wallet.css";
+import { PublicKey } from "@solana/web3.js";
 
 const Nav = () => {
+  const [balance, setBalance] = useState(0);
   const [toggleLargeNav, setToggleLargeNav] = useState(false);
   const [toggleFullscreenNav, setToggleFullscreenNav] = useState(false);
   const [toggleSmallNav, setToggleSmallNav] = useState(false);
   const [collapseNav, setCollapseNav] = useState(false);
   const [fullScreenOrder, setFullScreenOrder] = useState(false);
   const [smallScreenOrder, setSmallScreenOrder] = useState(false);
+
+  const { publicKey, wallet, disconnect, connected } = useWallet();
+
+  const { setVisible } = useWalletModal();
+  const base58 = useMemo(() => publicKey?.toBase58(), [publicKey]);
+  const optimizeAddress = useMemo(() => {
+    if (!wallet || !base58) return null;
+    return base58.slice(0, 4) + '..' + base58.slice(-4);
+  }, [wallet, connected, publicKey, base58]);
+
+  const getBalance = async () => {
+    if (!wallet || !base58 || !publicKey) return null;
+    const balance = await solConnection.getBalance(publicKey);
+    setBalance(balance);
+  }
+  useEffect(() => {
+    getBalance();
+  }, [wallet, connected, publicKey])
+
   const url = window.location.pathname;
 
   // let {id} = useParams();
@@ -18,22 +43,21 @@ const Nav = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
         <div className="container container-relative">
-          <a className="navbar-brand" href="./">
+          <Link className="navbar-brand" to="/">
             Caboz
-          </a>
+          </Link>
           <div className="dropdown profile-dp d-block d-lg-none mob-wallet-details">
-            <a
-              href="#"
+            <button
               className="text-white dropdown-toggle"
               data-bs-toggle="dropdown"
               onClick={() => {
                 setToggleSmallNav(!toggleSmallNav)
                 setCollapseNav(false);
-              
+
               }}
             >
               <i className="fa-regular fa-circle-user f-icons profile-icon"></i>
-            </a>
+            </button>
             {toggleSmallNav ? (
               <div
                 className="dropdown-menu dropdown-menu-dark dropdown-menu-end text-left account-settings-mob mobile-nav-settings"
@@ -44,6 +68,7 @@ const Nav = () => {
                   <thead>
                     <tr>
                       <td className="text-left">
+
                         <h6 className="dropdown-header text-white">
                           <b>Wallet</b>
                         </h6>
@@ -63,7 +88,7 @@ const Nav = () => {
                               <td className="text-right">
                                 <img
                                   src={solicon}
-                                  style={{display: "inline-block"}}
+                                  style={{ display: "inline-block" }}
                                   className="sol-icon"
                                   alt="sol-icon"
                                 />{" "}
@@ -75,7 +100,7 @@ const Nav = () => {
                               <td className="text-right">
                                 <img
                                   src={solicon}
-                                  style={{display: "inline-block"}}
+                                  style={{ display: "inline-block" }}
                                   className="sol-icon"
                                   alt="sol-icon"
                                 />{" "}
@@ -91,37 +116,37 @@ const Nav = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="hr-div px-2" colSpan="2">
+                      <td className="hr-div px-2" colSpan={2}>
                         <hr />
                       </td>
                     </tr>
                     <tr>
-                      <td className="hr-div px-2" colSpan="2">
+                      <td className="hr-div px-2" colSpan={2}>
                         <a href="./profile.php">My Profile</a>
                       </td>
                     </tr>
                     <tr>
-                      <td className="hr-div px-2" colSpan="2">
+                      <td className="hr-div px-2" colSpan={2}>
                         <a href="./order-history.php">My Order History</a>
                       </td>
                     </tr>
                     <tr>
-                      <td className="hr-div px-2" colSpan="2">
+                      <td className="hr-div px-2" colSpan={2}>
                         <a href="./settings.php">Settings</a>
                       </td>
                     </tr>
                     <tr>
-                      <td className="hr-div px-2" colSpan="2">
+                      <td className="hr-div px-2" colSpan={2}>
                         <hr />
                       </td>
                     </tr>
                     <tr>
-                      <td className="hr-div px-2" colSpan="2">
+                      <td className="hr-div px-2" colSpan={2}>
                         <a href="./">Switch Account</a>
                       </td>
                     </tr>
                     <tr>
-                      <td className="hr-div px-2" colSpan="2">
+                      <td className="hr-div px-2" colSpan={2}>
                         <a href="./">Logout</a>
                       </td>
                     </tr>
@@ -178,13 +203,13 @@ const Nav = () => {
                     <li>
                       <Link
                         className="dropdown-item"
-                        to={"/multistepform"}
+                        to="/multistepform"
                       >
                         Create New Order
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to={"/my-orders"}>
+                      <Link className="dropdown-item" to="/my-orders">
                         My Orders
                       </Link>
                     </li>
@@ -193,19 +218,19 @@ const Nav = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  to={"/market"}
+                  to="/market"
                   className="nav-link px-4 text-white main-links"
                 >
                   Market
                 </Link>
               </li>
               <li className="nav-item">
-                <a
-                  href="./activity"
+                <Link
+                  to="/activity"
                   className="nav-link px-4 text-white main-links"
                 >
                   Activity
-                </a>
+                </Link>
               </li>
             </ul>
             <ul className="navbar-nav flex-row flex-wrap ms-md-auto ul-link-center d-none d-lg-block">
@@ -220,7 +245,7 @@ const Nav = () => {
                 >
                   <i className="fa-regular fa-circle-user f-icons"></i>
                 </button>
-                {toggleFullscreenNav ? (
+                {toggleFullscreenNav ? publicKey ? (
                   <ul
                     className="dropdown-menu dropdown-menu-dark dropdown-menu-end account-settings"
                     style={{ display: "block" }}
@@ -233,7 +258,7 @@ const Nav = () => {
                       </h6>
                     </li>
                     <li className="px-3 pb-1">
-                      <a className="walletid">Cc13hc....ui971uw</a>
+                      <a className="walletid">{optimizeAddress}</a>
                     </li>
                     <li className="li-details">
                       <a className="dropdown-item menuli">
@@ -244,11 +269,11 @@ const Nav = () => {
                               <td className="text-right">
                                 <img
                                   src={solicon}
-                                  style={{display: "inline-block"}}
+                                  style={{ display: "inline-block" }}
                                   className="sol-icon"
                                   alt="sol-icon"
                                 />{" "}
-                                74.3243
+                                {balance}
                               </td>
                             </tr>
                             <tr>
@@ -256,7 +281,7 @@ const Nav = () => {
                               <td className="text-right">
                                 <img
                                   src={solicon}
-                                  style={{display: "inline-block"}}
+                                  style={{ display: "inline-block" }}
                                   className="sol-icon"
                                   alt="sol-icon"
                                 />{" "}
@@ -305,15 +330,26 @@ const Nav = () => {
                       <hr />
                     </li>
                     <li>
-                      <a className="dropdown-item menuli" href="./switch.php">
+                      <a className="dropdown-item menuli" onClick={() => setVisible(true)}>
                         Switch Account
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item menuli" href="./logout.php">
+                      <a className="dropdown-item menuli" onClick={() => disconnect()}>
                         Logout
                       </a>
                     </li>
+                  </ul>
+                ) : (
+                  <ul
+                    className="dropdown-menu dropdown-menu-dark dropdown-menu-end "
+                    style={{ display: "flex", justifyContent: "center" }}
+                    id="move-left"
+                    data-bs-popper="static"
+                  >
+                    <WalletModalProvider>
+                      <WalletMultiButton className="btn btn-dark" />
+                    </WalletModalProvider>
                   </ul>
                 ) : null}
               </li>
@@ -415,7 +451,7 @@ const Nav = () => {
                                 <td className="text-right">
                                   <img
                                     src={solicon}
-                                    style={{display: "inline-block"}}
+                                    style={{ display: "inline-block" }}
                                     className="sol-icon"
                                     alt="sol-icon"
                                   />{" "}
@@ -427,7 +463,7 @@ const Nav = () => {
                                 <td className="text-right">
                                   <img
                                     src={solicon}
-                                    style={{display: "inline-block"}}
+                                    style={{ display: "inline-block" }}
                                     className="sol-icon"
                                     alt="sol-icon"
                                   />{" "}

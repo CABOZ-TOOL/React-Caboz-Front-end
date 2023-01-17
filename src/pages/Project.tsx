@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import FooterBacktoTop from "../components/FooterBacktoTop";
 import Loader from "../components/Loader";
 import solicon from "../assets/images/sol-icon.png";
@@ -6,13 +6,13 @@ import Nav from "../components/Nav";
 
 const Project = () => {
   // const url = window.location.href;
-  const [nftname, setNftname] = useState("");
+  const [nftname, setNftname] = useState<string | null>("");
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   // console.log( url, params.get('nft') );
   // console.log(params);
   useEffect(() => {
-    setNftname(params.get("nft"));
+    return setNftname(params.get("nft"));
   }, [nftname]);
   return (
     <div>
@@ -32,7 +32,7 @@ const Project = () => {
               <div className="col-4 col-xs-4 col-sm-4 col-md-2 col-lg-2 text-center mb-4">
                 <img
                   src={`${nftname
-                    .toLowerCase()
+                    ?.toLowerCase()
                     .split("")
                     .filter((e) => e.trim().length)
                     .join("")}.png`}

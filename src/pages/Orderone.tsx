@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
@@ -18,18 +18,19 @@ import primate from "../assets/images/projects/primates.png";
 import degenape from "../assets/images/projects/degenerateapeacademy.png";
 import froots from "../assets/images/projects/froots.png";
 
-const Orderone = ({ page, setPage, formData, setFormData }) => {
-  const searchCollection = () => {};
+const Orderone = (props: { page: any, setPage: any, formData: any, setFormData: any }) => {
+  const { page, setPage, formData, setFormData } = props;
+  const searchCollection = () => { };
   const [list, setList] = useState([
     {
       title: "some",
     },
   ]);
-  const [inputList, setInputList] = useState([]);
+  const [inputList, setInputList] = useState<string[]>([]);
   const [parsedList, setParsedList] = useState("hi");
   let nftName = "";
 
-  const addItem = (data) => {
+  const addItem = (data: any) => {
     setInputList([...inputList, data]);
     nftName = data;
     console.log(inputList);
@@ -124,7 +125,7 @@ const Orderone = ({ page, setPage, formData, setFormData }) => {
                       {/* <!--<input type="text" name="tags" data-role="tagsinput" -d="tags" className="form-control form-input" placeholder="Search for a collection ..." autocomplete="off" oninput="this.className = ''" id="searchInput" onkeyup="searchCollection()">--> */}
                       <input
                         name="list"
-                        value={formData.collection.map((item) => item.nft.toString())}
+                        value={formData.collection.map((item: any) => item.nft.toString())}
                         placeholder="select a Collection"
                         readOnly
                       />

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import "../assets/css/bootstrap.min.css";
@@ -43,7 +43,7 @@ const Collection = () => {
   const [searchInput, setSeaaarchInput] = useState("");
   const [day, setDays] = useState("7 Days");
   const [showDays, setShowDays] = useState(false);
-  const searchCollectionTitle = () => {};
+  const searchCollectionTitle = () => { };
   return (
     <div>
       <div>
@@ -71,7 +71,7 @@ const Collection = () => {
                   id="search-input"
                   value={searchInput}
                   onChange={(e) => setSeaaarchInput(e.target.value)}
-                  onKeyUp={searchCollectionTitle()}
+                // onKeyUp={searchCollectionTitle()}
                 />
               </div>
               <div className="col-xs-12 col-sm-6 col-md-2 form-search">
@@ -172,7 +172,7 @@ const Collection = () => {
                     <thead>
                       <tr>
                         <th></th>
-                        <th className="valign-mid" colSpan="2"></th>
+                        <th className="valign-mid" colSpan={2}></th>
                         <th className="valign-mid text-right">Floor Price</th>
                         <th className="valign-mid text-right">Ceiling Price</th>
                         <th className="valign-mid text-right">Active Trades</th>
@@ -189,7 +189,7 @@ const Collection = () => {
                     <tbody>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Inkwork Labs';"
+                      //onClick="window.location='./project.php?proj=Inkwork Labs';"
                       >
                         <td
                           width="50px"
@@ -251,7 +251,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Rakkudos';"
+                      //onClick="window.location='./project.php?proj=Rakkudos';"
                       >
                         <td
                           width="50px"
@@ -311,7 +311,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=DeGods';"
+                      //onClick="window.location='./project.php?proj=DeGods';"
                       >
                         <td
                           width="50px"
@@ -371,7 +371,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Okay Bears';"
+                      //onClick="window.location='./project.php?proj=Okay Bears';"
                       >
                         <td
                           width="50px"
@@ -431,7 +431,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Vandal City';"
+                      //onClick="window.location='./project.php?proj=Vandal City';"
                       >
                         <td
                           width="50px"
@@ -491,7 +491,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Degen Fat Cats';"
+                      //onClick="window.location='./project.php?proj=Degen Fat Cats';"
                       >
                         <td
                           width="50px"
@@ -551,7 +551,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=AI Angels';"
+                      //onClick="window.location='./project.php?proj=AI Angels';"
                       >
                         <td
                           width="50px"
@@ -611,7 +611,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Founders Coins';"
+                      //onClick="window.location='./project.php?proj=Founders Coins';"
                       >
                         <td
                           width="50px"
@@ -671,7 +671,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Mischievous Maxis';"
+                      //onClick="window.location='./project.php?proj=Mischievous Maxis';"
                       >
                         <td
                           width="50px"
@@ -731,7 +731,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=SoDead';"
+                      //onClick="window.location='./project.php?proj=SoDead';"
                       >
                         <td
                           width="50px"
@@ -791,7 +791,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Primates';"
+                      //onClick="window.location='./project.php?proj=Primates';"
                       >
                         <td
                           width="50px"
@@ -851,7 +851,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Shadow Super Coder';"
+                      //onClick="window.location='./project.php?proj=Shadow Super Coder';"
                       >
                         <td
                           width="50px"
@@ -911,7 +911,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Geno Pets';"
+                      //onClick="window.location='./project.php?proj=Geno Pets';"
                       >
                         <td
                           width="50px"
@@ -971,7 +971,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Cets On Creck';"
+                      //onClick="window.location='./project.php?proj=Cets On Creck';"
                       >
                         <td
                           width="50px"
@@ -1031,7 +1031,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Froots';"
+                      //onClick="window.location='./project.php?proj=Froots';"
                       >
                         <td
                           width="50px"
@@ -1091,7 +1091,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Eclestia';"
+                      //onClick="window.location='./project.php?proj=Eclestia';"
                       >
                         <td
                           width="50px"
@@ -1151,7 +1151,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Just Ape';"
+                      //onClick="window.location='./project.php?proj=Just Ape';"
                       >
                         <td
                           width="50px"
@@ -1211,7 +1211,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Dust Crash Coin Flip';"
+                      //onClick="window.location='./project.php?proj=Dust Crash Coin Flip';"
                       >
                         <td
                           width="50px"
@@ -1271,7 +1271,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Minoans of Moobaa';"
+                      //onClick="window.location='./project.php?proj=Minoans of Moobaa';"
                       >
                         <td
                           width="50px"
@@ -1331,7 +1331,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Alien Trippin High';"
+                      //onClick="window.location='./project.php?proj=Alien Trippin High';"
                       >
                         <td
                           width="50px"
@@ -1391,7 +1391,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Jelly Rascals';"
+                      //onClick="window.location='./project.php?proj=Jelly Rascals';"
                       >
                         <td
                           width="50px"
@@ -1451,7 +1451,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Blocksmith Labs';"
+                      //onClick="window.location='./project.php?proj=Blocksmith Labs';"
                       >
                         <td
                           width="50px"
@@ -1511,7 +1511,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Degenerate Ape Academy';"
+                      //onClick="window.location='./project.php?proj=Degenerate Ape Academy';"
                       >
                         <td
                           width="50px"
@@ -1571,7 +1571,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Jikan Studios';"
+                      //onClick="window.location='./project.php?proj=Jikan Studios';"
                       >
                         <td
                           width="50px"
@@ -1631,7 +1631,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Sengoku Degens';"
+                      //onClick="window.location='./project.php?proj=Sengoku Degens';"
                       >
                         <td
                           width="50px"
@@ -1691,7 +1691,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Infected Mob';"
+                      //onClick="window.location='./project.php?proj=Infected Mob';"
                       >
                         <td
                           width="50px"
@@ -1751,7 +1751,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Eternal Dragons Genesis';"
+                      //onClick="window.location='./project.php?proj=Eternal Dragons Genesis';"
                       >
                         <td
                           width="50px"
@@ -1811,7 +1811,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Weeping Angels';"
+                      //onClick="window.location='./project.php?proj=Weeping Angels';"
                       >
                         <td
                           width="50px"
@@ -1871,7 +1871,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=AI Degens';"
+                      //onClick="window.location='./project.php?proj=AI Degens';"
                       >
                         <td
                           width="50px"
@@ -1931,7 +1931,7 @@ const Collection = () => {
                       </tr>
                       <tr
                         className="goto-collection"
-                        //onClick="window.location='./project.php?proj=Famous Fox';"
+                      //onClick="window.location='./project.php?proj=Famous Fox';"
                       >
                         <td
                           width="50px"
@@ -2108,7 +2108,7 @@ const Collection = () => {
         <script
           src="https://code.jquery.com/jquery-3.6.0.min.js"
           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-          // crossOrigin="anonymous"
+        // crossOrigin="anonymous"
         ></script>
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
         <script src="./assets/js/aos.js"></script>
